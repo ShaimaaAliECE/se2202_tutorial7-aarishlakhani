@@ -8,11 +8,14 @@
 let points = [ {x:35, y:16}, {x:30, y:71} , {x:28, y:0}, {x:19, y:10} , {x:5, y:4} , {x:0, y:15} ];
 
 // Call the filter function with a test that eliminates any points that have x=0 or y=0
+const zeros = points.filter(element => (element.x != 0)&&(element.y != 0) )
 
 // Transform each point to its distance from the origin based on the euclidean distance
+let euclideanDistance = zeros.map(a => Math.sqrt(a.xa.x + a.ya.y))
 
 // Find the maximum among these distances using the reduce function and store it in maxDist
-let maxDist;
+const reducer = (a, b) => Math.max(a,b)
+let maxDist = euclideanDistance.reduce(reducer);
 
 // Don't change this line
 console.log(maxDist);
